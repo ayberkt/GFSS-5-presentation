@@ -1,0 +1,46 @@
+% arara: lualatex
+% arara: bibtex
+% arara: lualatex
+% arara: lualatex
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\documentclass{beamer}
+\usetheme{metropolis}           % Use metropolis theme
+\usepackage{xcolor}
+\usepackage{lstautogobble}
+
+\usepackage{listings}
+\lstset{
+  autogobble=true,
+  breaklines=true,
+  language=ML,
+  showstringspaces=false,
+  basicstyle=\scriptsize\ttfamily,
+  keywordstyle=\bfseries\color{Bittersweet!40!black},
+  commentstyle=\itshape\color{Violet!40!black},
+  identifierstyle=\color{BurntOrange},
+  stringstyle=\color{RoyalBlue},
+}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=Bittersweet,
+  citecolor=RoyalBlue,
+}
+\title{Reviving the Turkish resource grammar}
+\date{\today}
+\author{Ayberk Tosun}
+\institute{Fifth GF Summer School}
+\begin{document}
+  \maketitle
+
+  \section{Overview}
+
+  \begin{frame}{Introduction}
+    foo bar
+  \end{frame}
+
+  %% \bibliographystyle{alpha}
+  %% \bibliography{bibliography}
+
+\end{document}
