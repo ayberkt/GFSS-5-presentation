@@ -141,11 +141,11 @@
           Lang> l -lang=LangEng ReflA2 married_A2
           married to myself
         \end{lstlisting}
-      %% \item<2->
-        %% \begin{lstlisting}
-          %% Lang> l -lang=LangTur ReflA2 married_A2
-          %% kendi ile evli
-        %% \end{lstlisting}
+      \item<2->
+        \begin{lstlisting}
+          Lang> l -lang=LangTur ReflA2 married_A2
+          -> kendi ile evli
+        \end{lstlisting}
     \end{itemize}
   \end{frame}
 
@@ -161,7 +161,7 @@
 
   \begin{frame}[fragile]{Testing \texttt{NounTur.gf} out}
     \begin{itemize}
-      \item<1-> foo
+      \item<1->
         \begin{lstlisting}
           Lang> parse -cat=CN -lang=LangEng "beer worse than everything"
           -> AdjCN (ComparA bad_A everything_NP) (UseN beer_N)
