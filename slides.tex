@@ -7,6 +7,9 @@
 \usetheme{metropolis}           % Use metropolis theme
 \usepackage{xcolor}
 \usepackage{lstautogobble}
+\usepackage{verbatim}
+
+\newcommand{\translation}[1]{{\tiny\texttt{#1}}}
 
 \usepackage{listings}
 \lstset{
@@ -14,7 +17,7 @@
   breaklines=true,
   language=ML,
   showstringspaces=false,
-  basicstyle=\scriptsize\ttfamily,
+  basicstyle=\tiny\ttfamily,
   keywordstyle=\bfseries\color{Bittersweet!40!black},
   commentstyle=\itshape\color{Violet!40!black},
   identifierstyle=\color{BurntOrange},
@@ -41,12 +44,12 @@
       \item<1-> A non-trivial amount of work was done\footnote{Thanks to Server
         \c{C}imen} on the Turkish resource grammar (RG).
         \begin{itemize}
-          \item Nevertheless, the Turkish RG is not really useful for any
+          \item<2-> Nevertheless, the Turkish RG is not really useful for any
             applications because of the functionality that is missing.
         \end{itemize}
-      \item<2-> \alert{One problem though}: this was a long time ago---latest
+      \item<3-> \alert{One problem though}: this was a long time ago---latest
         commit dates back to \emph{eight years} ago.
-      \item<3-> \emph{Long story made short}: the Turkish RG doesn't seem
+      \item<4-> \emph{Long story made short}: the Turkish RG doesn't seem
         willing to complete itself.
     \end{itemize}
   \end{frame}
@@ -65,12 +68,56 @@
     \end{itemize}
   \end{frame}
 
-  \section{What has been done?}
+  \section{\texttt{StructuralTur.gf}}
 
-  \begin{frame}{\texttt{StructuralTur.gf}}
+  \begin{frame}{Some prepositions}
+    \scriptsize
     \begin{itemize}
-      \item foo
+      \item \texttt{with\_Prep}
+      \item \texttt{before\_Prep}
+      \item \texttt{above\_Prep}
+      \item \texttt{behind\_Prep}
+      \item \texttt{on\_Prep}
+      \item \texttt{in\_Prep}
+      \item \texttt{except\_Prep}
+      \item \texttt{during\_Prep}
+      \item \texttt{between\_Prep}
+      \item \texttt{and\_Conj}
+      \item \texttt{or\_Conj}
+      \item \texttt{always\_Adv}
+      \item \texttt{but\_PConj}
+      \item \texttt{everybody\_NP}
+      \item \texttt{everything\_NP}
     \end{itemize}
+    \normalsize
+  \end{frame}
+
+  \begin{frame}[fragile]{Testing \texttt{StructuralTur.gf} out}
+    \begin{itemize}
+      \item<1->
+        \begin{lstlisting}
+        Lang> parse -lang=LangEng -cat=Cl "everybody always eats everything"
+                | l -lang=LangTur
+        \end{lstlisting}
+      \item<2->
+        \begin{itemize}
+          \translation{herkes her zaman her\c{s}eyi yiyor}
+        \end{itemize}
+      \item<3->
+        \begin{lstlisting}
+          Lang> parse -lang=LangEng -cat=Cl "everybody always eats many apples"
+                  | l -lang=LangTur
+        \end{lstlisting}
+      \item<4->
+        \begin{itemize}
+            \translation{herkes her zaman bir\c{c}ok elmay\i\ yiyor}
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \section{\texttt{AdjectiveTur.gf}}
+
+  \begin{frame}
   \end{frame}
 
   %% \bibliographystyle{alpha}
