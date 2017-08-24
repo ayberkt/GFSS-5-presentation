@@ -208,25 +208,25 @@
 
   \section{Some challenges}
 
-  \begin{frame}{Finding problems or \emph{monsters}}
+  \begin{frame}{Finding problems (i.e., \emph{monsters})}
     \begin{itemize}
       \item<1-> Programs are developed through series of assertions---those
         of \emph{correctness}.
       \item<2-> Of course, these assertions do not always hold; one soon finds a
         nasty counterexample (monster\footnote{See ``Proofs and Refutations''
-        by Lakatos (\cite{lakatos1976proofs})}).
-          \begin{itemize}
-            \item<3-> Usually \alert{proof-directed debugging} is a good way
-              \cite{harper1999proof}.
-          \end{itemize}
+        by Lakatos \cite{lakatos1976proofs}}).
       \item<4-> How one will avoid this monster determines the further
-        development of the program.
+        development of the program; \emph{this the development process itself}.
+          \begin{itemize}
+            \item<3-> Usually \alert{proof-directed debugging}
+              \cite{harper1999proof} is a good way to drive such development.
+          \end{itemize}
       \item<5-> \emph{The problem}: how do you find such monsters for a resource
         grammar?
     \end{itemize}
   \end{frame}
 
-  \begin{frame}{Do I know Turkish, even?}
+  \begin{frame}{Do I even know Turkish?}
     \begin{itemize}
       \item<1-> ``kendi'' is simply the reflexive pronoun in Turkish.
         \begin{itemize}
@@ -241,12 +241,12 @@
     \end{itemize}
   \end{frame}
 
-  \begin{frame}{Do I know Turkish, even?}
+  \begin{frame}{Do I even know Turkish?}
     \begin{itemize}
-      \item<1-> \includegraphics[scale=0.35]{resources/kendi-exceptions.png}
-      \item<2-> Some of these take a non-trivial queryign of one's native
+      \item<1-> \includegraphics[scale=0.3]{resources/kendi-exceptions.png}
+      \item<2-> Some of these take a non-trivial querying of one's native
         speaker intuitions.
-    \begin{itemize}
+    \end{itemize}
   \end{frame}
 
   \section{Concluding Remarks}
@@ -254,19 +254,24 @@
   \begin{frame}{The future}
     \begin{itemize}
       \item<1-> Current status: first PR merged into \texttt{GF/master}.
-      \item<2-> Continuing work on my fork of GF, branches:
         \begin{itemize}
-          \item<2-> \texttt{ayberkt/GF:structural}
-          \item<2-> \texttt{ayberkt/GF:adjectives}
+          \item<2-> {\scriptsize
+            \url{https://github.com/GrammaticalFramework/GF/pull/9}}
         \end{itemize}
-      \item<3-> Hopefully, I will keep working through the semester.
-      \item<4-> The goal is to get Turkish into the offline translation tool.
+      \item<3-> Continuing work on my fork of GF, branches:
+        \begin{itemize}
+          \item<3-> \texttt{ayberkt/GF:structural}
+          \item<3-> \texttt{ayberkt/GF:adjectives}
+        \end{itemize}
+      \item<4-> Hopefully, I will keep working through the semester.
+      \item<5-> The goal is to get Turkish into the offline translation tool.
     \end{itemize}
   \end{frame}
 
   \begin{frame}{Acknowledgments}
     \Large
-      Thanks to \emph{Krasimir Angelov} for all his help.
+      Thanks to \emph{Krasimir Angelov} for teaching me how to develop
+      resource grammars.
   \end{frame}
 
   \begin{frame}{Goodbye!}
