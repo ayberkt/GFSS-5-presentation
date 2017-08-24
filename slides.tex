@@ -37,7 +37,40 @@
   \section{Overview}
 
   \begin{frame}{Introduction}
-    foo bar
+    \begin{itemize}
+      \item<1-> A non-trivial amount of work was done\footnote{Thanks to Server
+        \c{C}imen} on the Turkish resource grammar (RG).
+        \begin{itemize}
+          \item Nevertheless, the Turkish RG is not really useful for any
+            applications because of the functionality that is missing.
+        \end{itemize}
+      \item<2-> \alert{One problem though}: this was a long time ago---latest
+        commit dates back to \emph{eight years} ago.
+      \item<3-> \emph{Long story made short}: the Turkish RG doesn't seem
+        willing to complete itself.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{What's missing?}
+    \begin{itemize}
+      \item<1-> According to \texttt{pg -missing} the linearizations of around
+        $470$ functions are missing
+      \item<2-> The relevant issue on GitHub: \alert{\#5}.
+        \uncover<3->{
+          \begin{center}
+            \small
+            \url{https://github.com/GrammaticalFramework/GF/issues/5}
+          \end{center}
+        }
+    \end{itemize}
+  \end{frame}
+
+  \section{What has been done?}
+
+  \begin{frame}{\texttt{StructuralTur.gf}}
+    \begin{itemize}
+      \item foo
+    \end{itemize}
   \end{frame}
 
   %% \bibliographystyle{alpha}
