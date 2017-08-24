@@ -7,7 +7,6 @@
 \usetheme{metropolis}           % Use metropolis theme
 \usepackage{xcolor}
 \usepackage{lstautogobble}
-\usepackage{fontenc}
 \newcommand{\issuelink}{https://github.com/GrammaticalFramework/GF/pull/9}
 
 \newcommand{\translation}[1]{{\tiny\texttt{#1}}}
@@ -23,20 +22,18 @@
   commentstyle=\itshape\color{Violet!40!black},
   identifierstyle=\color{BurntOrange},
   stringstyle=\color{RoyalBlue},
-  extendedchars=true,
-  literate=
-           {ç}{{\color{BurntOrange}\c{c}}}1
-           {Ç}{{\c{C}}}1
-           {ğ}{{\u{g}}}1
-           {Ğ}{{\u{G}}}1
-           {ı}{{\i}}1
-           {İ}{{\.{I}}}1
-           {ö}{{\"o}}1
-           {Ö}{{\"O}}1
-           {ş}{{\c{s}}}1
-           {Ş}{{\c{S}}}1
-           {ü}{{\"u}}1
-           {Ü}{{\"U}}1
+  inputencoding=utf8,
+  escapeinside={\%*}{*)},
+  literate={ç}{{\color{BurntOrange}\c{c}}}1 {ş}{{\c{s}}}1
+  %% {ğ}{{\u{g}}}1
+  %% {Ğ}{{\u{G}}}1
+  %% {ı}{{\i}}1
+    %% {İ}{{\.{I}}}1
+    %% {ö}{{\"o}}1
+    %% {Ö}{{\"O}}1
+    %% {Ş}{{\c{S}}}1
+    %% {ü}{{\"u}}1
+    %% {Ü}{{\"U}}1
 }
 
 \usepackage{hyperref}
@@ -107,13 +104,13 @@
         \begin{lstlisting}
         Lang> parse -lang=LangEng -cat=Cl "everybody always eats everything"
                 | l -lang=LangTur
-        herkes her zaman herşeyi yiyor
+        --> %*herkes her zaman herşeyi yiyor*)
         \end{lstlisting}
       \item<3->
         \begin{lstlisting}
           Lang> parse -lang=LangEng -cat=Cl "everybody always eats many apples"
                   | l -lang=LangTur
-            herkes her zaman birçok elmayı yiyor
+          --> %*herkes her zaman birçok elmayı yiyor*)
         \end{lstlisting}
     \end{itemize}
   \end{frame}
@@ -141,12 +138,12 @@
       \item<1->
         \begin{lstlisting}
           Lang> l -lang=LangEng ReflA2 married_A2
-          married to myself
+          --> %*married to myself*)
         \end{lstlisting}
       \item<2->
         \begin{lstlisting}
           Lang> l -lang=LangTur ReflA2 married_A2
-          -> kendi ile evli
+          --> %*kendi ile evli*)
         \end{lstlisting}
     \end{itemize}
   \end{frame}
@@ -168,13 +165,13 @@
       \item<1->
         \begin{lstlisting}
           Lang> parse -cat=CN -lang=LangEng "beer worse than everything"
-          -> AdjCN (ComparA bad_A everything_NP) (UseN beer_N)
+          --> AdjCN (ComparA bad_A everything_NP) (UseN beer_N)
         \end{lstlisting}
       \item<2->
         \begin{lstlisting}
           Lang> parse -cat=CN -lang=LangEng "beer worse than everything"
                   | l -lang=LangTur
-          -> herşeyden kötü bira
+          %*--> herşeyden kötü bira*)
         \end{lstlisting}
     \end{itemize}
   \end{frame}
