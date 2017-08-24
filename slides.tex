@@ -7,7 +7,8 @@
 \usetheme{metropolis}           % Use metropolis theme
 \usepackage{xcolor}
 \usepackage{lstautogobble}
-\usepackage{fontspec}
+\usepackage{fontenc}
+\newcommand{\issuelink}{https://github.com/GrammaticalFramework/GF/pull/9}
 
 \newcommand{\translation}[1]{{\tiny\texttt{#1}}}
 
@@ -22,6 +23,20 @@
   commentstyle=\itshape\color{Violet!40!black},
   identifierstyle=\color{BurntOrange},
   stringstyle=\color{RoyalBlue},
+  extendedchars=true,
+  literate=
+           {ç}{{\color{BurntOrange}\c{c}}}1
+           {Ç}{{\c{C}}}1
+           {ğ}{{\u{g}}}1
+           {Ğ}{{\u{G}}}1
+           {ı}{{\i}}1
+           {İ}{{\.{I}}}1
+           {ö}{{\"o}}1
+           {Ö}{{\"O}}1
+           {ş}{{\c{s}}}1
+           {Ş}{{\c{S}}}1
+           {ü}{{\"u}}1
+           {Ü}{{\"U}}1
 }
 
 \usepackage{hyperref}
@@ -41,14 +56,13 @@
 
   \begin{frame}{Introduction}
     \begin{itemize}
-      \item<1-> A non-trivial amount of work was done\footnote{Thanks to Server
+      \item<1-> Some non-trivial work was done\footnote{Thanks to Server
         \c{C}imen and Krasimir Angelov} on the Turkish resource grammar (RG).
         \begin{itemize}
-          \item<2-> Nevertheless, the Turkish RG is not really useful for any
-            applications because of the functionality that is missing.
+          \item<2-> Nevertheless, the Turkish RG is of no use
+            because of the missing functionality.
         \end{itemize}
-      \item<3-> This work done was a long time ago: latest commit dates back
-        to \emph{eight years} ago.
+      \item<3-> This work was done a long time ago (about $8$ years).
       \item<4-> \emph{Long story made short}: the Turkish RG won't complete
         itself; someone has to do some work.
     \end{itemize}
@@ -58,12 +72,7 @@
     \begin{itemize}
       \item<1-> According to \texttt{pg -missing} the linearizations of around
         $470$ functions are missing
-      \item<2-> The relevant issue on GitHub: \alert{\#5}.
-        \uncover<3->{
-          \begin{center}
-            {\tiny\url{https://github.com/GrammaticalFramework/GF/issues/5}}
-          \end{center}
-        }
+      \item<2-> The relevant issue on GitHub: \href{\issuelink}{\alert{\#5}}.
     \end{itemize}
   \end{frame}
 
@@ -165,15 +174,41 @@
         \begin{lstlisting}
           Lang> parse -cat=CN -lang=LangEng "beer worse than everything"
                   | l -lang=LangTur
-          herşeyden kötü bira
+          -> herşeyden kötü bira
         \end{lstlisting}
     \end{itemize}
   \end{frame}
 
   \section{Some challenges}
 
-  \begin{frame}{Harmony}
-    TODO
+  \begin{frame}{Finding problems or \emph{monsters}}
+    \begin{itemize}
+      \item<1-> Programs are developed through series of assertions---those
+        of \emph{correctness}.
+      \item<2-> Of course, these assertions do not always hold---there exists a
+        nasty counterexample (monster as Lakatos likes to say).
+      \item<3-> How one will avoid this monster determines the further
+        development of the program.
+      \item<4-> \emph{The problem}: how do you find such monsters for a resource
+        grammar?
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Best practice is a good theory}
+    \begin{itemize}
+      \item<1-> ``kendi``
+    \end{itemize}
+  \end{frame}
+
+  \section{Conclusion}
+
+  \begin{frame}{Some things I learned}
+    \begin{itemize}
+      \item<1-> Current status:
+        \href{first PR}{https://github.com/GrammaticalFramework/GF/pull/9}
+        merged into \texttt{GF/master}.
+      \item<2-> The project
+    \end{itemize}
   \end{frame}
 
 \end{document}
