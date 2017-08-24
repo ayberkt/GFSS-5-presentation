@@ -6,8 +6,10 @@
 \documentclass{beamer}
 \usetheme{metropolis}           % Use metropolis theme
 \usepackage{xcolor}
+\usepackage{graphicx}
 \usepackage{lstautogobble}
-\newcommand{\issuelink}{https://github.com/GrammaticalFramework/GF/pull/9}
+\newcommand{\issuelink}{https://github.com/GrammaticalFramework/GF/issues/5}
+\newcommand{\PRlink}{https://github.com/GrammaticalFramework/GF/pull/9}
 
 \newcommand{\translation}[1]{{\tiny\texttt{#1}}}
 
@@ -103,18 +105,28 @@
       \item<1->
         \begin{lstlisting}
         Lang> parse -lang=LangEng -cat=Cl "everybody always eats everything"
-                | l -lang=LangTur
         \end{lstlisting}
       \item<2->
         \begin{lstlisting}
-        --> %*herkes her zaman herşeyi yiyor*)
+         --> PredVP everybody_NP
+               (AdVVP always_AdV
+                 (ComplSlash (SlashV2a eat_V2) everything_NP))
         \end{lstlisting}
       \item<3->
+        \begin{lstlisting}
+        Lang> parse -lang=LangEng -cat=Cl "everybody always eats everything"
+                | l -lang=LangTur
+        \end{lstlisting}
+      \item<4->
+        \begin{lstlisting}
+        --> %*herkes her zaman herşeyi yiyor*)
+        \end{lstlisting}
+      \item<5->
         \begin{lstlisting}
           Lang> parse -lang=LangEng -cat=Cl "everybody always eats many apples"
                   | l -lang=LangTur
         \end{lstlisting}
-      \item<4->
+      \item<6->
         \begin{lstlisting}
           --> %*herkes her zaman birçok elmayı yiyor*)
         \end{lstlisting}
@@ -144,11 +156,17 @@
       \item<1->
         \begin{lstlisting}
           Lang> l -lang=LangEng ReflA2 married_A2
-          --> %*married to myself*)
         \end{lstlisting}
       \item<2->
         \begin{lstlisting}
+          --> %*married to myself*)
+        \end{lstlisting}
+      \item<3->
+        \begin{lstlisting}
           Lang> l -lang=LangTur ReflA2 married_A2
+        \end{lstlisting}
+      \item<4->
+        \begin{lstlisting}
           --> %*kendi ile evli*)
         \end{lstlisting}
     \end{itemize}
@@ -171,12 +189,18 @@
       \item<1->
         \begin{lstlisting}
           Lang> parse -cat=CN -lang=LangEng "beer worse than everything"
-          --> AdjCN (ComparA bad_A everything_NP) (UseN beer_N)
         \end{lstlisting}
       \item<2->
         \begin{lstlisting}
+          --> AdjCN (ComparA bad_A everything_NP) (UseN beer_N)
+        \end{lstlisting}
+      \item<3->
+        \begin{lstlisting}
           Lang> parse -cat=CN -lang=LangEng "beer worse than everything"
                   | l -lang=LangTur
+        \end{lstlisting}
+      \item<4->
+        \begin{lstlisting}
           %*--> herşeyden kötü bira*)
         \end{lstlisting}
     \end{itemize}
@@ -188,8 +212,9 @@
     \begin{itemize}
       \item<1-> Programs are developed through series of assertions---those
         of \emph{correctness}.
-      \item<2-> Of course, these assertions do not always hold---there exists a
-        nasty counterexample (monster as Lakatos likes to say).
+      \item<2-> Of course, these assertions do not always hold; one soon finds a
+        nasty counterexample (monster\footnote{See ``Proofs and Refutations''
+        by Lakatos (\cite{lakatos1976proofs})}).
       \item<3-> How one will avoid this monster determines the further
         development of the program.
       \item<4-> \emph{The problem}: how do you find such monsters for a resource
@@ -197,27 +222,57 @@
     \end{itemize}
   \end{frame}
 
-  \begin{frame}{Best practice is a good theory}
+  \begin{frame}{Do I know Turkish, even?}
     \begin{itemize}
-      \item<1-> ``kendi``
+      \item<1-> ``kendi'' is simply the reflexive pronoun in Turkish.
+        \begin{itemize}
+          \item<2-> \dots or so did I think
+        \end{itemize}
+      \item<3-> Then I decided to consult the standard Turkish grammar
+        textbook \cite{goksel2004turkish}.
+      \item<4->
+        \begin{center}
+          \includegraphics[scale=0.3]{resources/kendi-functions.png}
+         \end{center}
     \end{itemize}
   \end{frame}
 
-  \section{Conclusion}
-
-  \begin{frame}{Some things I learned}
-    \begin{itemize}
-      \item<1-> Current status:
-        \href{first PR}{https://github.com/GrammaticalFramework/GF/pull/9}
-        merged into \texttt{GF/master}.
-      \item<2-> The project
-    \end{itemize}
+  \begin{frame}{Do I know Turkish, even?}
+    \includegraphics[scale=0.35]{resources/kendi-exceptions.png}
   \end{frame}
+
+  \section{Concluding Remarks}
 
   \begin{frame}{The future}
     \begin{itemize}
-      \item TODO
+      \item<1-> Current status: first PR merged into \texttt{GF/master}.
+      \item<2-> Continuing work on my fork of GF, branches:
+        \begin{itemize}
+          \item<2-> \texttt{ayberkt/GF:structural}
+          \item<2-> \texttt{ayberkt/GF:adjectives}
+        \end{itemize}
+      \item<3-> Hopefully, I will keep working through the semester.
+      \item<4-> The goal is to get Turkish into the offline translation tool.
     \end{itemize}
   \end{frame}
+
+  \begin{frame}{Acknowledgments}
+    \Large
+      Thanks to \emph{Krasimir Angelov} for all his help.
+  \end{frame}
+
+  \begin{frame}{Goodbye!}
+    \begin{itemize}
+    \item<1-> \alert{It was very nice meeting you all!}
+    \item<2-> Stay in touch:
+      \begin{itemize}
+        \item<3-> I am \alert{\texttt{ayberkt}} everywhere on the internet.
+        \item<4-> You can mail me at \texttt{ayberk.tosun@gmail.com}.
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \bibliographystyle{alpha}
+  \bibliography{bibliography}
 
 \end{document}
